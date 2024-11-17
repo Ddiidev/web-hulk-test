@@ -94,7 +94,6 @@ export default defineComponent({
             const latitude: number = position.coords.latitude;
             const longitude: number = position.coords.longitude;
 
-            debugger
             const country = localStorage.getItem('country');
             if (country){
                 this.setPrice(country)
