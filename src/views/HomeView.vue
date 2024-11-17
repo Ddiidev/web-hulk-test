@@ -44,7 +44,7 @@
                     <RouterLink to="/payment/full">
                         <PlanCard title="Plano Full" description="Para usuários avançados"
                             :features="['50 requisições na API por minuto', '150 posts no webhook por minuto', 'Privacidade e segurança avançadas']"
-                            price="$ 5 USD" isPrimary />
+                            :price="price" isPrimary />
                     </RouterLink>
                 </div>
             </section>
@@ -71,7 +71,58 @@ export default defineComponent({
     },
     data() {
         return {
+            price: '$ ? '
         };
+    },
+    mounted() {
+        this.getUserCountry();
+    },
+    methods: {
+        getUserCountry(): void {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(this.showPosition, this.handleError);
+            } else {
+                console.error("Geolocalização não é suportada por este navegador.");
+            }
+        },
+
+        handleError(error: GeolocationPositionError): void {
+            console.error(`ERROR(${error.code}): ${error.message}`);
+        },
+
+        showPosition(position: GeolocationPosition): void {
+            const latitude: number = position.coords.latitude;
+            const longitude: number = position.coords.longitude;
+
+            debugger
+            const country = localStorage.getItem('country');
+            if (country){
+                this.setPrice(country)
+                return;
+            }
+
+            fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
+                .then((response) => response.json())
+                .then((data) => {
+                    const country: string = data?.address.country;
+                    localStorage.setItem('country', country);
+                    this.setPrice(country);
+                })
+                .catch((error) => {
+                    debugger;
+                    console.error('Erro ao obter o país:', error);
+                });
+        },
+
+        setPrice(country: string): void {
+            if (country === "Brasil") {
+                this.price = "R$ 5 BRL";
+            } else if (country === "Argentina") {
+                this.price = "$ 1,50 USD";
+            } else {
+                this.price = "$ 5 USD";
+            }
+        }
     }
 });
 </script>

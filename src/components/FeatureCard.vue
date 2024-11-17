@@ -11,6 +11,8 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
 // import { Globe, Zap, Lock } from 'lucide-vue';
+import { GlobeAltIcon, BoltIcon, LockClosedIcon } from '@heroicons/vue/24/outline';
+
 
 export default defineComponent({
   name: 'FeatureCard',
@@ -22,9 +24,9 @@ export default defineComponent({
   setup(props) {
     const iconComponent = computed(() => {
       switch (props.icon) {
-        // case 'Globe': return Globe;
-        // case 'Zap': return Zap;
-        // case 'Lock': return Lock;
+        case 'Globe': return GlobeAltIcon;
+        case 'Zap': return BoltIcon;
+        case 'Lock': return LockClosedIcon;
         default: return null;
       }
     });
