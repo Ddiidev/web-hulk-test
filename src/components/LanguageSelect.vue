@@ -10,11 +10,11 @@
         <div v-if="isDropdownOpen" class="absolute right-0 z-10 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
             <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                 <div @click="selectLanguage('pt_BR')" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-green-100 cursor-pointer">
-                    <img src="@/assets/icons/br.png" alt="Português" class="w-5 h-5 mr-2" />
+                    <img src="../assets/Icons/br.png" alt="Português" class="w-5 h-5 mr-2" />
                     Português (BR)
                 </div>
                 <div @click="selectLanguage('en_US')" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-green-100 cursor-pointer">
-                    <img src="@/assets/icons/us.png" alt="English" class="w-5 h-5 mr-2" />
+                    <img src="./assets/icons/us.png" alt="English" class="w-5 h-5 mr-2" />
                     English
                 </div>
             </div>
@@ -27,9 +27,6 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
     name: 'LanguageSelect',
-    emits: {
-        'languageSelected': (language: string) =>{}
-    },
     data() {
         return {
             isDropdownOpen: false,
