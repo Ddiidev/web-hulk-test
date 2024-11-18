@@ -19,10 +19,13 @@
     <p v-else :class="[isPrimary ? 'text-white' : 'text-emerald-100']" class="text-2xl font-bold mb-4">{{ price }}</p>
     <RouterLink :to="`/payment/${plan}`">
       <button
-        :class="[
-          isPrimary ? 'bg-white hover:bg-emerald-100 text-emerald-800' : 'bg-emerald-600 text-white hover:bg-emerald-500',
-          isOutline ? 'border border-emerald-500 text-white bg-transparent' : ''
-        ]"
+      :class="[
+        isOutline 
+          ? 'border border-emerald-500 bg-transparent text-white'
+          : isPrimary 
+            ? 'bg-white hover:bg-emerald-100 text-emerald-800'
+            : 'bg-emerald-600 text-white hover:bg-emerald-500'
+      ]"
         class="w-full py-2 rounded">
         {{ $t('homeView.sectionOurPlans.button') }}</button>
     </RouterLink>
