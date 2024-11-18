@@ -50,15 +50,17 @@
             </section>
 
 
-
+            <!-- Veja Como funciona -->
             <section class="mb-16 container mx-auto px-36 sm:px-10 2xl:px-44 sml:px-4 pt-16">
                 <h2 class="text-2xl font-semibold text-white mb-6 text-center">
                     {{ $t('homeView.sectionHowWorking.title') }}</h2>
                 <div class="flex items-center grid md:grid-cols-2">
-                    <img src="@/assets/WebHulkTest.svg"
-                        class="rounded rounded-lg border border-emerald-600 cursor-zoom-in"
-                        @click="openModal('image', '@/assets/WebHulkTest.svg')"
-                        style="width: 85%; height: auto; object-fit: cover; ">
+                    <video autoplay loop muted playsinline
+                        class="rounded rounded-lg border border-emerald-600 ml-4 cursor-zoom-in"
+                        @click="openModal('work-flow', '@/assets/workflow.mp4')"
+                        style="width: 97%; max-height: 405px; object-fit: cover;">
+                        <source src="@/assets/workflow.mp4" type="video/mp4">
+                    </video>
 
                     <video autoplay loop muted playsinline
                         class="rounded rounded-lg border border-emerald-600 ml-4 cursor-zoom-in"
@@ -83,7 +85,7 @@
                 </ol>
             </section>
 
-
+            <!-- Nossos planos -->
             <section
                 class="bg-gradient-to-br from-emerald-900 to-emerald-1000 border-b border-t border-emerald-600 pt-16">
                 <div class="mb-16 container mx-auto px-36 sm:px-10 2xl:px-44 sml:px-4">
@@ -97,8 +99,8 @@
 
                         <PlanCard :title="$t('homeView.sectionOurPlans.planIntermediate.title')"
                             :description="$t('homeView.sectionOurPlans.planIntermediate.subTitle')"
-                            :features="($tm('homeView.sectionOurPlans.planIntermediate.benefits') as any[])" :price="priceIntermediate"
-                            plan="intermediate" :isLoading="isLoading" isPrimary isOutline />
+                            :features="($tm('homeView.sectionOurPlans.planIntermediate.benefits') as any[])"
+                            :price="priceIntermediate" plan="intermediate" :isLoading="isLoading" isPrimary isOutline />
 
                         <PlanCard :title="$t('homeView.sectionOurPlans.planFull.title')"
                             :description="$t('homeView.sectionOurPlans.planFull.subTitle')"
@@ -118,9 +120,11 @@
 
     <div v-if="isModalOpen" class="modal" @click="closeModal">
         <span class="close" @click="closeModal">&times;</span>
-        <template v-if="modalType === 'image'">
-            <img class="rounded rounded-lg border border-emerald-600 ml-4 modal-content"
-                src="@/assets/WebHulkTest.svg" />
+        <template v-if="modalType === 'work-flow'">
+            <video class="rounded rounded-lg border border-emerald-600 ml-4 modal-content" autoplay loop muted
+                playsinline>
+                <source src="@/assets/workflow.mp4" type="video/mp4">
+            </video>
         </template>
         <template v-else-if="modalType === 'video'">
             <video class="rounded rounded-lg border border-emerald-600 ml-4 modal-content" autoplay loop muted
