@@ -64,6 +64,10 @@ export const en_US = {
                     },
                     {
                         benefit: true,
+                        text: 'Interactive dashboard with all responses in real time',
+                    },
+                    {
+                        benefit: true,
                         text: 'Privacy and security for webhook messages',
                     },
                     {
@@ -91,6 +95,10 @@ export const en_US = {
                     },
                     {
                         benefit: true,
+                        text: 'Interactive dashboard with all responses in real time',
+                    },
+                    {
+                        benefit: true,
                         text: 'Privacy and security for webhook messages',
                     },
                     {
@@ -115,6 +123,10 @@ export const en_US = {
                     {
                         benefit: true,
                         text: '1500 posts to the webhook per minute',
+                    },
+                    {
+                        benefit: true,
+                        text: 'Interactive dashboard with all responses in real time',
                     },
                     {
                         benefit: true,

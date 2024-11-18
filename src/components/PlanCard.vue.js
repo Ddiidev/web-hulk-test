@@ -93,8 +93,11 @@ function __VLS_template() {
     const __VLS_13 = __VLS_asFunctionalComponent(__VLS_12, new __VLS_12({ to: ((`/payment/${__VLS_ctx.plan}`)), }));
     const __VLS_14 = __VLS_13({ to: ((`/payment/${__VLS_ctx.plan}`)), }, ...__VLS_functionalComponentArgsRest(__VLS_13));
     __VLS_elementAsFunction(__VLS_intrinsicElements.button, __VLS_intrinsicElements.button)({ ...{ class: (([
-                __VLS_ctx.isPrimary ? 'bg-white hover:bg-emerald-100 text-emerald-800' : 'bg-emerald-600 text-white hover:bg-emerald-500',
-                __VLS_ctx.isOutline ? 'border border-emerald-500 text-white bg-transparent' : ''
+                __VLS_ctx.isOutline
+                    ? 'border border-emerald-500 bg-transparent text-white'
+                    : __VLS_ctx.isPrimary
+                        ? 'bg-white hover:bg-emerald-100 text-emerald-800'
+                        : 'bg-emerald-600 text-white hover:bg-emerald-500'
             ])) }, ...{ class: ("w-full py-2 rounded") }, });
     (__VLS_ctx.$t('homeView.sectionOurPlans.button'));
     __VLS_nonNullable(__VLS_17.slots).default;

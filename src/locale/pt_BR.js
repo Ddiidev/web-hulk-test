@@ -59,6 +59,10 @@ export const pt_BR = {
                     },
                     {
                         benefit: true,
+                        text: 'Dashboard interativos com todas as resposta em tempo real',
+                    },
+                    {
+                        benefit: true,
                         text: 'Privacidade e segurança com menssagens da webhook',
                     },
                     {
@@ -85,6 +89,10 @@ export const pt_BR = {
                     },
                     {
                         benefit: true,
+                        text: 'Dashboard interativos com todas as resposta em tempo real',
+                    },
+                    {
+                        benefit: true,
                         text: 'Privacidade e segurança com menssagens da webhook',
                     },
                     {
@@ -108,6 +116,10 @@ export const pt_BR = {
                     {
                         benefit: true,
                         text: '1500 posts no webhook por minuto',
+                    },
+                    {
+                        benefit: true,
+                        text: 'Dashboard interativos com todas as resposta em tempo real',
                     },
                     {
                         benefit: true,

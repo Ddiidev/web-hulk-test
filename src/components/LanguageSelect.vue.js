@@ -1,9 +1,6 @@
 import { defineComponent } from 'vue';
 export default defineComponent({
     name: 'LanguageSelect',
-    emits: {
-        'languageSelected': (language) => { }
-    },
     data() {
         return {
             isDropdownOpen: false,
@@ -63,13 +60,13 @@ function __VLS_template() {
                         return;
                     __VLS_ctx.selectLanguage('pt_BR');
                 } }, ...{ class: ("flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-green-100 cursor-pointer") }, });
-        __VLS_elementAsFunction(__VLS_intrinsicElements.img)({ src: ("@/assets/icons/br.png"), alt: ("Português"), ...{ class: ("w-5 h-5 mr-2") }, });
+        __VLS_elementAsFunction(__VLS_intrinsicElements.img)({ src: ("../assets/Icons/br.png"), alt: ("Português"), ...{ class: ("w-5 h-5 mr-2") }, });
         __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ onClick: (...[$event]) => {
                     if (!((__VLS_ctx.isDropdownOpen)))
                         return;
                     __VLS_ctx.selectLanguage('en_US');
                 } }, ...{ class: ("flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-green-100 cursor-pointer") }, });
-        __VLS_elementAsFunction(__VLS_intrinsicElements.img)({ src: ("@/assets/icons/us.png"), alt: ("English"), ...{ class: ("w-5 h-5 mr-2") }, });
+        __VLS_elementAsFunction(__VLS_intrinsicElements.img)({ src: ("../assets/Icons/us.png"), alt: ("English"), ...{ class: ("w-5 h-5 mr-2") }, });
     }
     __VLS_styleScopedClasses['relative'];
     __VLS_styleScopedClasses['inline-block'];
