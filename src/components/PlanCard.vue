@@ -6,34 +6,51 @@
       <h3 :class="[isPrimary ? 'text-white' : 'text-emerald-100']" class="text-2xl">{{ title }}</h3>
       <p class="text-emerald-200">{{ description }}</p>
     </div>
-    <ul class="space-y-2 mb-6">
+    <ul class="space-y-4 mb-6">
       <li v-for="(feature, index) in features" :key="index" class="flex items-center text-emerald-100">
-        <CheckIcon class="h-6 w-6 text-green-500" /> {{ feature }}
+        <CheckIcon v-if="feature.benefit" class="h-6 w-6 text-green-500" />
+        <XMarkIcon v-else class="h-6 w-6 text-red-500"/>
+        <p class="pl-2">
+          {{ feature.text }}
+        </p>
       </li>
     </ul>
     <span v-if="isLoading" :class="[isLoading ? 'loader text-2xl font-bold mb-4' : '']"></span>
     <p v-else :class="[isPrimary ? 'text-white' : 'text-emerald-100']" class="text-2xl font-bold mb-4">{{ price }}</p>
     <RouterLink :to="`/payment/${plan}`">
       <button
-        :class="[isPrimary ? 'bg-white hover:bg-emerald-100 text-emerald-800' : 'bg-emerald-600 text-white hover:bg-emerald-500']"
+        :class="[
+          isPrimary ? 'bg-white hover:bg-emerald-100 text-emerald-800' : 'bg-emerald-600 text-white hover:bg-emerald-500',
+          isOutline ? 'border border-emerald-500 text-white bg-transparent' : ''
+        ]"
         class="w-full py-2 rounded">
-        Escolher Plano</button>
+        {{ $t('homeView.sectionOurPlans.button') }}</button>
     </RouterLink>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { CheckIcon } from '@heroicons/vue/24/outline';
+import { CheckIcon, XMarkIcon } from '@heroicons/vue/24/outline';
+
+class Feature {
+  benefit: boolean = false;
+  text: string = '';
+  tooltip: string = 'teste';
+} 
 
 export default defineComponent({
   name: 'PlanCard',
   props: {
     title: String,
     description: String,
-    features: Array,
+    features: Array<Feature>,
     price: String,
     isPrimary: {
+      type: Boolean,
+      default: false
+    },
+    isOutline: {
       type: Boolean,
       default: false
     },
@@ -44,7 +61,8 @@ export default defineComponent({
     }
   },
   components: {
-    CheckIcon
+    CheckIcon,
+    XMarkIcon
   }
 });
 </script>

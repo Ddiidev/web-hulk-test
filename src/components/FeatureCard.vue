@@ -10,7 +10,6 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
-// import { Globe, Zap, Lock } from 'lucide-vue';
 import { GlobeAltIcon, BoltIcon, LockClosedIcon } from '@heroicons/vue/24/outline';
 
 

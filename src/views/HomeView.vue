@@ -1,42 +1,50 @@
 <template>
-    <div class="min-h-screen">
+
+    <Navbar />
+
+    <div class="min-h-screen pt-10">
+
         <div class="py-16">
             <header class="text-center mb-20">
                 <div class="flex justify-center mb-6">
                     <img src="../assets/LogoWebHulkTest.PNG" alt="WebHulk Test Logo" width="200" height="200"
                         class="h-auto" />
                 </div>
-                <h1 class="text-4xl font-bold text-white mb-4">Webhook Test Service</h1>
+
+                <h1 class="text-4xl font-bold text-white mb-4">Webhook Test</h1>
                 <p class="text-xl text-emerald-100 max-w-3xl mx-auto mb-12">
-                    O WebHulkTest é a solução ideal para desenvolvedores que necessitam testar APIs que respondem de
-                    forma
-                    assíncrona através de webhooks.
+                    {{ $t('homeView.subTitle') }}
                 </p>
 
                 <section class="container mx-auto px-36 sm:px-10 2xl:px-44 sml:px-4">
                     <div class="grid md:grid-cols-3 gap-8">
-                        <InfoCard icon="Code" title="Para Desenvolvedores"
-                            description="Projetado para cenários em que você ainda não possui um serviço próprio em produção e está realizando testes em ambiente local." />
-                        <InfoCard icon="Webhook" title="Teste de Webhooks"
-                            description="Simule e valide respostas de webhook de plataformas como Stripe, PayPal e outras APIs assíncronas." />
-                        <InfoCard icon="Shield" title="Ambiente Seguro"
-                            description="Oferece um ambiente seguro e eficiente para testar, acelerando seu processo de desenvolvimento e testes." />
+                        <InfoCard icon="Code" :title="$t('homeView.sectionInfoCard.forDev.title')"
+                            :description="$t('homeView.sectionInfoCard.forDev.content')" />
+
+                        <InfoCard icon="Webhook" :title="$t('homeView.sectionInfoCard.testFromWebHooks.title')"
+                            :description="$t('homeView.sectionInfoCard.testFromWebHooks.content')" />
+
+                        <InfoCard icon="Shield" :title="$t('homeView.sectionInfoCard.safeEnviroment.title')"
+                            :description="$t('homeView.sectionInfoCard.safeEnviroment.content')" />
                     </div>
                 </section>
             </header>
 
-
             <section
                 class="bg-gradient-to-br from-emerald-900 to-emerald-1000 border-b border-t border-emerald-600 py-16">
                 <div class="mb-16 container mx-auto px-36 sm:px-10 2xl:px-44 sml:px-4">
-                    <h2 class="text-2xl font-semibold text-white mb-6 text-center">Recursos Principais</h2>
+                    <h2 class="text-2xl font-semibold text-white mb-6 text-center">{{
+                        $t('homeView.sectionResourcePrincipal.title') }}</h2>
                     <div class="grid md:grid-cols-3 gap-8">
-                        <FeatureCard icon="Globe" title="API Flexível"
-                            description="Faça requisições para verificar o status do seu webhook" />
-                        <FeatureCard icon="Zap" title="Conexão Local"
-                            description="Conecte-se ao seu webhook local enquanto a aba estiver aberta" />
-                        <FeatureCard icon="Lock" title="Privacidade Garantida"
-                            description="Todos os posts são apagados após 3 minutos de leitura" />
+                        <FeatureCard icon="Globe" :title="$t('homeView.sectionResourcePrincipal.API.title')"
+                            :description="$t('homeView.sectionResourcePrincipal.API.content')" />
+
+                        <FeatureCard icon="Zap" :title="$t('homeView.sectionResourcePrincipal.connectionLocal.title')"
+                            :description="$t('homeView.sectionResourcePrincipal.connectionLocal.content')" />
+
+                        <FeatureCard icon="Lock"
+                            :title="$t('homeView.sectionResourcePrincipal.privacyGuaranteed.title')"
+                            :description="$t('homeView.sectionResourcePrincipal.privacyGuaranteed.content')" />
                     </div>
                 </div>
             </section>
@@ -44,7 +52,8 @@
 
 
             <section class="mb-16 container mx-auto px-36 sm:px-10 2xl:px-44 sml:px-4 pt-16">
-                <h2 class="text-2xl font-semibold text-white mb-6 text-center">Como funciona!</h2>
+                <h2 class="text-2xl font-semibold text-white mb-6 text-center">
+                    {{ $t('homeView.sectionHowWorking.title') }}</h2>
                 <div class="flex items-center grid md:grid-cols-2">
                     <img src="@/assets/WebHulkTest.svg"
                         class="rounded rounded-lg border border-emerald-600 cursor-zoom-in"
@@ -60,20 +69,16 @@
                 </div>
 
                 <p class="text-lg text-emerald-100 mt-4">
-                    Você pode receber suas mensagens de duas maneiras:
+                    {{ $t('homeView.sectionHowWorking.subTitle') }}:
                 </p>
                 <ol class="list-decimal list-inside text-lg text-emerald-100 mt-2">
                     <li>
-                        <strong>Webhook Local:</strong> Implemente um webhook local (com exemplos prontos
-                        disponíveis) e configure no WebHulkTest. Enquanto a aba do navegador estiver aberta, todas
-                        as mensagens recebidas serão direcionadas para seu webhook local, proporcionando um teste
-                        semelhante ao ambiente de produção.
+                        <strong>{{ $t('homeView.sectionHowWorking.msgWebhookLocal.point') }}:</strong>
+                        {{ $t('homeView.sectionHowWorking.msgWebhookLocal.content') }}
                     </li>
                     <li>
-                        <strong>Requisição GET:</strong> Realize uma requisição GET simples à WebHulkTestApi para
-                        receber todas as novas mensagens. Este método é mais limitado, pois os dados serão agrupados
-                        em uma lista e enviados em uma única resposta, porém é mais simples e te dá um
-                        possibilidades de fazer qualquer coisa com WebHulkTest, muito além da proposta inicial.
+                        <strong>{{ $t('homeView.sectionHowWorking.msgRequestGET.point') }}:</strong>
+                        {{ $t('homeView.sectionHowWorking.msgRequestGET.content') }}
                     </li>
                 </ol>
             </section>
@@ -82,22 +87,30 @@
             <section
                 class="bg-gradient-to-br from-emerald-900 to-emerald-1000 border-b border-t border-emerald-600 pt-16">
                 <div class="mb-16 container mx-auto px-36 sm:px-10 2xl:px-44 sml:px-4">
-                    <h2 class="text-2xl font-semibold text-white mb-6 text-center">Nossos Planos</h2>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <PlanCard title="Plano Grátis" description="Perfeito para começar"
-                            :features="['50 requisições na API por dia', 'Até 5 posts no webhook por dia', 'Privacidade e segurança padrão']"
-                            price="Grátis" plan="free" />
+                    <h2 class="text-2xl font-semibold text-white mb-6 text-center">{{
+                        $t('homeView.sectionOurPlans.title') }}</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <PlanCard :title="$t('homeView.sectionOurPlans.planBasic.title')"
+                            :description="$t('homeView.sectionOurPlans.planBasic.subTitle')"
+                            :features="($tm('homeView.sectionOurPlans.planBasic.benefits') as any[])"
+                            :price="priceBasic" :isLoading="isLoading" plan="basic" />
 
-                        <PlanCard title="Plano Full" description="Para usuários avançados"
-                            :features="['50 requisições na API por minuto', '150 posts no webhook por minuto', 'Privacidade e segurança avançadas']"
-                            :price="price" plan="full" :isLoading="isLoading" isPrimary />
+                        <PlanCard :title="$t('homeView.sectionOurPlans.planIntermediate.title')"
+                            :description="$t('homeView.sectionOurPlans.planIntermediate.subTitle')"
+                            :features="($tm('homeView.sectionOurPlans.planIntermediate.benefits') as any[])" :price="priceIntermediate"
+                            plan="intermediate" :isLoading="isLoading" isPrimary isOutline />
+
+                        <PlanCard :title="$t('homeView.sectionOurPlans.planFull.title')"
+                            :description="$t('homeView.sectionOurPlans.planFull.subTitle')"
+                            :features="($tm('homeView.sectionOurPlans.planFull.benefits') as any[])" :price="priceFull"
+                            plan="full" :isLoading="isLoading" isPrimary />
                     </div>
                 </div>
             </section>
 
 
             <footer class="text-center text-emerald-100">
-                <p>&copy; 2024 WebHulkTest Test Service. Todos os direitos reservados.</p>
+                <p>{{ $t('homeView.footer') }}</p>
             </footer>
         </div>
     </div>
@@ -113,7 +126,6 @@
             <video class="rounded rounded-lg border border-emerald-600 ml-4 modal-content" autoplay loop muted
                 playsinline>
                 <source src="@/assets/WebHulkTestDashboard.mp4" type="video/mp4">
-                Seu navegador não suporta a tag de vídeo.
             </video>
         </template>
     </div>
@@ -124,15 +136,17 @@ import { defineComponent, ref } from 'vue';
 import InfoCard from '@/components/InfoCard.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import PlanCard from '@/components/PlanCard.vue';
-import { RouterLink } from 'vue-router'
-// import WebHulkTestApresentation from '@/assets/WebHulkTestApresentation.vue';
+import LanguageSelect from '@/components/LanguageSelect.vue';
+import Navbar from '@/components/Navbar.vue';
 
 export default defineComponent({
     name: 'LandingPage',
     components: {
         InfoCard,
         FeatureCard,
-        PlanCard
+        PlanCard,
+        LanguageSelect,
+        Navbar
     },
     setup() {
         const isModalOpen = ref(false);
@@ -153,7 +167,9 @@ export default defineComponent({
     },
     data() {
         return {
-            price: '$ 5 ',
+            priceFull: '$ 10',
+            priceBasic: '$ 5',
+            priceIntermediate: '$ 7',
             isLoading: ref(false)
         };
     },
@@ -204,9 +220,13 @@ export default defineComponent({
 
         setPrice(country: string): void {
             if (country === "Brasil") {
-                this.price = "R$ 5 BRL";
+                this.priceBasic = 'R$ 5 BRL'
+                this.priceIntermediate = "R$ 7 BRL";
+                this.priceFull = "R$ 10 BRL";
             } else {
-                this.price = "$ 5 USD";
+                this.priceBasic = '$ 5 USD'
+                this.priceIntermediate = "$ 7 USD";
+                this.priceFull = "$ 10 USD";
             }
         }
     }
