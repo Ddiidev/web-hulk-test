@@ -1,3 +1,5 @@
+# Ideia boa! porém percebi que não vai dá pra competir com webhook.site. Por isso será descontinuado.
+
 # WebHulkTest
 
  ![WebHulkTest](https://github.com/user-attachments/assets/b75c48dc-800b-46cf-ab43-72f31b3b191d)
